@@ -2,8 +2,10 @@ import time
 from datetime import date, datetime, timedelta
 from dataclasses import dataclass
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
+from pyvirtualdisplay import Display
 import threading
 
 import res
@@ -11,7 +13,13 @@ from res_config import ResConfig
 
 lock = threading.Lock()
 
-DRIVER = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+chrome_options = Options()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument('--disable-dev-shm-usage')
+
+DRIVER = webdriver.Chrome(chrome_options=chrome_options, service=Service(ChromeDriverManager().install()))
 DRIVER.implicitly_wait(1.0)
 
 # function to check for reservations on a given date

@@ -1,0 +1,1 @@
+ssh -i "~/Documents/projects/secrets/gb-aws.pem" ec2-user@ec2-3-84-185-170.compute-1.amazonaws.com

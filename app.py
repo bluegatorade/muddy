@@ -1,10 +1,11 @@
+#!/usr/bin/python3
 import requests
 from flask import Flask, session, render_template, request, url_for, flash, redirect
 from datetime import datetime
 from res_config import ResConfig
 
 app = Flask(__name__)
-API_URL = "http://localhost:8000"
+API_URL = "http://localhost:80"
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
@@ -49,4 +50,4 @@ def index():
     return render_template('home.html', message=message) 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0')
