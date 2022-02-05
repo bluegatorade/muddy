@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Muddy Reservations</title>
+    <meta charset="utf-8">
+    <meta name="description" content={{description}}>
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <h1>{{message}}</h1> 
+    <h1>new res</h1>
+    
+    <form method="post">
+        <label>reservation info (all res are 5-8pm)</label>
+        <br>
+        <input type="text" name="date"
+               placeholder="2022-03-05"
+               value="{{ request.form['date'] }}"></input>
+        <input type="number" name="size"
+               placeholder="num people"
+               value="{{ request.form['people'] }}"></input>
+        <br>
+        <br>
+
+        <label>contact</label>
+        <br>
+        <input type="text" name="firstname"
+               placeholder="first name"
+               value="{{ request.form['firstname'] }}"></input>
+        <input type="text" name="lastname"
+               placeholder="last name"
+               value="{{ request.form['lastname'] }}"></input>
+        <br>
+
+        <input type="text" name="phone"
+               placeholder="phone"
+               value="{{ request.form['phone'] }}"></input>
+        <input type="text" name="email"
+               placeholder="email"
+               value="{{ request.form['email'] }}"></input>
+        <br>
+        <br>
+
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+  </body>
+
+</html>
